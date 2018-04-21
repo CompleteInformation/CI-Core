@@ -1,0 +1,1 @@
+namespace CompleteInformation.Core
