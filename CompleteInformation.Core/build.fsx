@@ -17,10 +17,6 @@ Target.create "Clean" (fun _ ->
     Shell.CleanDir buildDir
 )
 
-Target.create "Release" (fun _ ->
-    DotNet.pack (fun p -> { p with Configuration = DotNet.BuildConfiguration.Release }) project
-)
-
 Target.create "Default" (fun _ ->
     DotNet.build id project
 )
@@ -30,9 +26,6 @@ open Fake.Core.TargetOperators
 
 "Clean"
     ==> "Default"
-
-"Clean"
-    ==> "Release"
 
 // start build
 Target.runOrDefault "Default"
