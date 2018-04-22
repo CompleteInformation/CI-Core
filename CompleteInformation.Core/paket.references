@@ -2,3 +2,4 @@ Couchbase.Lite
 Couchbase.Lite.Support.NetDesktop
 FSharp.Core
 Microsoft.Composition
+dotnet-fake

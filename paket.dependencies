@@ -1,4 +1,8 @@
+storage: none
 source https://www.nuget.org/api/v2
+
 nuget Couchbase.Lite 2.0.0.1
 nuget FSharp.Core 4.3.4
 nuget Microsoft.Composition 1.0.31
+
+clitool dotnet-fake 5.0.0-rc005
