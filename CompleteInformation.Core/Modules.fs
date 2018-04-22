@@ -51,4 +51,4 @@ let initialize () =
     loader.Modules
     |> List.ofSeq
     |> List.iter (fun m -> m.Initialize dict)
-    ()
+    dict
