@@ -1,9 +1,13 @@
 module CompleteInformation.Core.FSharp.Modules
 
 open Couchbase.Lite
-open System
 open System.Composition
+open System.Composition.Hosting
 open System.Collections.Generic
+open System.IO
+open System.Linq
+open System.Reflection
+open System.Runtime.Loader
 
 type IModule =
     abstract member GetDatabaseNames: unit -> string list
@@ -18,10 +22,21 @@ type ModuleLoader () = class
        and  set (f : IEnumerable<IModule>) = modules <- f
 end
 
-let initialize () =
-    // TODO:
+let compose () =
+    let executableLocation = Assembly.GetEntryAssembly().Location
+    let path = Path.Combine(Path.GetDirectoryName(executableLocation), "Plugins")
+    let assemblies = Directory.GetFiles(path, "*.dll", SearchOption.AllDirectories).Select(AssemblyLoadContext.Default.LoadFromAssemblyPath).ToList();
+    let configuration = new ContainerConfiguration()
+    configuration.WithAssemblies(assemblies) |> ignore
+    configuration
 
+let initialize () =
     let loader = new ModuleLoader ()
+
+    let configuration = compose()
+    use container = configuration.CreateContainer ()
+    loader.Modules <- container.GetExports<IModule>()
+
     let dict =
         loader.Modules
         |> List.ofSeq
