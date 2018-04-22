@@ -4,9 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Interfaces.fs" />
-    <Compile Include="Database.fs" />
-    <Compile Include="API.fs" />
+    <Compile Include="Modules.fs" />
   </ItemGroup>
   <Import Project=".paket\Paket.Restore.targets" />
 </Project>
