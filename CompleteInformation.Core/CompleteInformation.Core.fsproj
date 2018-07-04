@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Extension.fs" />
-    <Compile Include="Application.fs" />
+    <Compile Include="FSharp\Extension.fs" />
+    <Compile Include="FSharp\Application.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
