@@ -16,6 +16,7 @@ let createSetup databases extensions =
     { Setup.databases = databases; extensions = extensions }
 
 let setUpApplication (setup:Setup) =
+    Couchbase.Lite.Support.NetDesktop.Activate()
     let databases =
         setup.databases
         |> List.fold (fun (map:Map<string,Database>) d -> map.Add(d, new Database (d))) Map.empty
