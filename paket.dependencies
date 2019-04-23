@@ -1,9 +1,9 @@
 storage: none
 source https://www.nuget.org/api/v2
 
-nuget Couchbase.Lite ~> 2.0
-nuget Couchbase.Lite.Support.NetDesktop ~> 2.0
-nuget FSharp.Core ~> 4.3
+nuget Couchbase.Lite ~> 2.1.2
+nuget Couchbase.Lite.Support.NetDesktop ~> 2.1.2
+nuget FSharp.Core ~> 4.6.2
 nuget System.Runtime.Loader ~> 4.3
 
-clitool dotnet-fake ~> 5.0 prerelease
+clitool dotnet-fake ~> 5.13.1
