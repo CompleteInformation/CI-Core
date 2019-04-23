@@ -4,8 +4,11 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="FSharp\Extension.fs" />
-    <Compile Include="FSharp\Application.fs" />
+    <Compile Include="Extension.fs" />
+    <Compile Include="Application.fs" />
   </ItemGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
+  <ItemGroup>
+    <PackageReference Include="Couchbase.Lite" Version="2.1.*" />
+    <PackageReference Include="Couchbase.Lite.Support.NetDesktop" Version="2.1.*" />
+  </ItemGroup>
 </Project>
